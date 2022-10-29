@@ -197,7 +197,7 @@ class MaskUtil
      * @param  integer $maskPattern
      * @param  integer $x
      * @param  integer $y
-     * @return integer
+     * @return bool
      * @throws Exception\InvalidArgumentException
      */
     public static function getDataMaskBit($maskPattern, $x, $y)
@@ -220,7 +220,7 @@ class MaskUtil
                 break;
 
             case 4:
-                $intermediate = (BitUtils::unsignedRightShift($y, 1) + ($x / 3)) & 0x1;
+                $intermediate = (int) (BitUtils::unsignedRightShift($y, 1) + ($x / 3)) & 0x1;
                 break;
 
             case 5:
