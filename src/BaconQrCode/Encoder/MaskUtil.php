@@ -10,6 +10,7 @@
 namespace BaconQrCode\Encoder;
 
 use BaconQrCode\Common\BitUtils;
+use BaconQrCode\Exception\InvalidArgumentException;
 
 /**
  * Mask utility.
@@ -198,7 +199,7 @@ class MaskUtil
      * @param  integer $x
      * @param  integer $y
      * @return bool
-     * @throws Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public static function getDataMaskBit($maskPattern, $x, $y)
     {
@@ -239,7 +240,7 @@ class MaskUtil
                 break;
 
             default:
-                throw new Exception\InvalidArgumentException('Invalid mask pattern: ' . $maskPattern);
+                throw new InvalidArgumentException('Invalid mask pattern: ' . $maskPattern);
         }
 
         return $intermediate === 0;
